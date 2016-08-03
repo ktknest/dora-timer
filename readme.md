@@ -20,7 +20,7 @@ https://ktknest.github.io/dora-timer/app
 ## Parts list
 
 |パーツ|数量|備考|
-|:-|:-|:-|
+|:--|:--|:--|
 |Arduino UNO|1|MIDIデバイス化して使用|
 |プッシュソレノイド（新電元 S-1212）|1|12Vで動作|
 |ダイオード（IN4004）|1|ソレノイドの逆電圧対策|
