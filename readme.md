@@ -13,6 +13,9 @@ IT 界隈での LT(ライトニングトーク)用に、自動でドラを鳴ら
 指定時間経過後、Web MIDI APIを経由してArudinoに信号を送り、ソレノイドを動作させる最小の構成です。
 https://ktknest.github.io/dora-timer/basic
 
+#### Sketch
+[/basic/sketch.ino](/basic/sketch.ino)
+
 #### Parts list
 
 |パーツ|数量|備考|
@@ -37,6 +40,9 @@ https://ktknest.github.io/dora-timer/basic
 ### App Version
 Arduino側からのON/OFF操作や、Webアプリケーション上での停止、リセット、残り時間設定などを加えた構成です。
 https://ktknest.github.io/dora-timer/app
+
+#### Sketch
+[/app/sketch.ino](/app/sketch.ino)
 
 ## FYI
 - http://morecatlab.akiba.coocan.jp/lab/index.php/aruino/midi-firmware-for-arduino-uno-moco/
