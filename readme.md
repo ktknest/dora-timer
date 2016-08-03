@@ -5,8 +5,8 @@ IT 界隈での LT(ライトニングトーク)用に、自動でドラを鳴ら
 
 ## Feature
 - 表示＆コントロールはブラウザで
-- ArduinoをMIDIデバイス化して、
-- PC/Androidと接続時間になったらドラを鳴らす
+- ArduinoをMIDIデバイス化して、PC/Androidと接続
+- 時間になったらドラを鳴らす
 
 ## Sample
 ### Basic Version
@@ -23,6 +23,7 @@ https://ktknest.github.io/dora-timer/app
 |:--|:--|:--|
 |Arduino UNO|1|MIDIデバイス化して使用|
 |プッシュソレノイド（新電元 S-1212）|1|12Vで動作|
+|電源アダプタ（12V）|1|ソレノイドへの供給用|
 |ダイオード（IN4004）|1|ソレノイドの逆電圧対策|
 |抵抗（5.1kΩ）|2|
 |ジャンパピン|1|Arduinoの切り替え|
