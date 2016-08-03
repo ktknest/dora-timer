@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dora Timer : basic ver.</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  </head>
+  <body>
+    <button type="button" class="js-start" disabled>START</button>
+    <span class="js-cnt"></span>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+    var device;
+    var $start = $('.js-start');
+    var $cnt = $('.js-cnt');
+    var DEFAULT_CNT = 10;
+    var NOTE_ON = 0x90;
+    var NOTE_OFF = 0x80;
+    var NOTE_NUM_SOLENOID_ON = 4;
+
+    // MIDIデバイスの取得
+    window.navigator.requestMIDIAccess().then(function(midi) {
+      device = midi.outputs.values().next().value;
+      if (device) {
+        reset();
+      }
+    });
+
+    // ボタンのクリック動作
+    $start.on('click', start);
+
+    // 表示リセット
+    function reset() {
+      $start.removeAttr('disabled');
+      $cnt.text(DEFAULT_CNT);
+    }
+
+    // カウントダウンを始める
+    function start() {
+      $start.attr('disabled', true);
+      var interval = setInterval(function() {
+        var now = $cnt.text();
+        $cnt.text(--now);
+        if (now <= 0) {
+          chime();
+          clearInterval(interval);
+          return;
+        }
+      }, 1000);
+    }
+
+    // MIDI信号を送ってドラを鳴らす
+    function chime() {
+      // ON/OFF+チャンネル, 音階, 音の強さ の順で指定している
+      device.send([NOTE_ON, NOTE_NUM_SOLENOID_ON, 0x7f]);
+      setTimeout(function() {
+        device.send([NOTE_OFF, NOTE_NUM_SOLENOID_ON, 0x7f]);
+        reset();
+      }, 100);
+    }
+    </script>
+  </body>
+</html>
