@@ -33,7 +33,7 @@ https://ktknest.github.io/dora-timer/app
 |バチ（シャフト、ジョイント）|1|ソレノイドと接続|
 |筐体|-|木材などで組み立て|
 
-## Circuit diagram
+## Circuit diagram (Basic Version)
 
 ![Circuit diagram](circuit-diagram.png)
 
